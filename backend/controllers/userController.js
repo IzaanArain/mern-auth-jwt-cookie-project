@@ -19,14 +19,15 @@ const registerUser = expressAsyncHandler(async (req,res) =>{
     });
 
     if(user){
-        generateToken(res,user._id);
+       const token = generateToken(res,user._id);
         return res.status(201).json({
             status:1,
             message:"User created successfully",
             data:{
                 _id:user._id,
                 name:user.name,
-                email:user.email
+                email:user.email,
+                token
             }
         })
     } else {
@@ -43,14 +44,15 @@ const authUser = expressAsyncHandler(async (req,res) =>{
 
     const user = await User.findOne({email});
     if(user && (await user.matchPassword(password))){
-        generateToken(res,user._id);
+       const token = generateToken(res,user._id);
         return res.status(201).json({
             status:1,
             message:"User created successfully",
             data:{
                 _id:user._id,
                 name:user.name,
-                email:user.email
+                email:user.email,
+                token
             }
         })
     } else {

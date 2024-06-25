@@ -4,7 +4,7 @@ import User from '../models/userModel.js';
 
 const protect = expressAsyncHandler(async (req,res,next) => {
     let token;
-    token = req.cookies.jwt;
+    token = req.cookies.jwt || req?.headers?.authorization?.split(" ")[1];
 
     if(token) {
         try {
