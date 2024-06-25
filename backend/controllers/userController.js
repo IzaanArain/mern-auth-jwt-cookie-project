@@ -1,18 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
-<<<<<<< HEAD
-
-// @desc Auth user/set token
-// route POST /api/users/auth
-// @access Public
-const authUser = expressAsyncHandler(async (req,res) =>{
-    res.status(404);
-    throw new Error("auth error");
-    res.status(200).json({message:"Auth user"})
-});
-=======
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
->>>>>>> a13c32736a694f40b905fb7c25f21fb3a7cc2f8b
 
 // @desc Register a new user
 // route POST /api/users/register
