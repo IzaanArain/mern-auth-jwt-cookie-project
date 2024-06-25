@@ -1,17 +1,30 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import express from "express";
+import dotenv from "dotenv";
 dotenv.config();
+import http from "http";
+import cookieParser from "cookie-parser";
 const PORT = process.env.PORT || 5000;
-import userRoutes from './routes/userRoutes.js';
-import { notfound,errorHandler } from './middleware/errorMiddleware.js';
-
+import userRoutes from "./routes/userRoutes.js";
+import { notfound, errorHandler } from "./middleware/errorMiddleware.js";
+import connectionDB from "./config/db.js";
+import { Server } from "socket.io";
+connectionDB();
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
+app.use("/api/users", userRoutes);
 
-app.use('/api/users',userRoutes);
-
-app.get("/",(req,res)=> res.send(`Server is ready`));
-
+app.get("/", (req, res) => res.send(`<h1>Server is ready</h1>`));
+// socket events
+io.on("connection", (socket) => {
+  console.log(`A user connected ${socket.id}`);
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
 app.use(notfound);
-app.use(errorHandler)
-app.listen(PORT,()=> console.log(`server started on port ${PORT}`));
-
+app.use(errorHandler);
+server.listen(PORT, () => console.log(`server started on port ${PORT}`));
