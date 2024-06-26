@@ -1,3 +1,4 @@
+import './header.css'
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LiaCookieBiteSolid } from "react-icons/lia";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
@@ -10,7 +11,7 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
             <Navbar.Brand href="/" className="d-flex align-items-center">
-              <span>MERN-AUTH</span>
+              <span className="me-1">MERN-AUTH</span>
               <LiaCookieBiteSolid />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

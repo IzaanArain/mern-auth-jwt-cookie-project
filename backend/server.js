@@ -14,7 +14,9 @@ const server = http.createServer(app);
 const io = new Server(server);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(notfound);
+app.use(errorHandler);
 app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => res.send(`<h1>Server is ready</h1>`));
@@ -25,6 +27,5 @@ io.on("connection", (socket) => {
     console.log("user disconnected");
   });
 });
-app.use(notfound);
-app.use(errorHandler);
+
 server.listen(PORT, () => console.log(`server started on port ${PORT}`));
