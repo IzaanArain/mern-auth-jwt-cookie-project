@@ -7,7 +7,7 @@ import { VscSignOut, VscSignIn } from "react-icons/vsc";
 const Header = () => {
   return (
     <>
-      <header>
+      <header className="header-section">
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
             <Navbar.Brand href="/" className="d-flex align-items-center">

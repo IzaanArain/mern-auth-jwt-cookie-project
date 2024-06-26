@@ -3,6 +3,7 @@
     --background-color:#212529;
     --background-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
 }
+
 /* custom-navbar.css */
 .custom-navbar {
     background-color: var(--background-color); 
