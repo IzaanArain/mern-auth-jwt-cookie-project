@@ -5,18 +5,18 @@
 }
 /* custom-navbar.css */
 .custom-navbar {
-    background-color: var(--background-color); /* Replace with your desired background color */
+    background-color: var(--background-color); 
 
     & .navbar-brand {
-        color: var(--font-color); /* Replace with your desired brand color */
+        color: var(--font-color); 
     }
 
     & .navbar-nav {
         & .nav-link {
-            color: #ddd; /* Replace with your desired link color */
+            color: #ddd; 
 
             &:hover{
-                color: var(--font-color); /* Replace with your desired hover color */
+                color: var(--font-color); 
             }
         }
     }
