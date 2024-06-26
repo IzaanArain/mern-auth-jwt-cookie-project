@@ -6,8 +6,7 @@
 /* custom-navbar.css */
 .custom-navbar {
     background-color: var(--background-color); /* Replace with your desired background color */
-    
-    
+     
     & .navbar-brand {
         color: var(--font-color); /* Replace with your desired brand color */
     }
