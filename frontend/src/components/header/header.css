@@ -6,13 +6,13 @@
 /* custom-navbar.css */
 .custom-navbar {
     background-color: var(--background-color); /* Replace with your desired background color */
-     
+
     & .navbar-brand {
         color: var(--font-color); /* Replace with your desired brand color */
     }
 
     & .navbar-nav {
-        .nav-link {
+        & .nav-link {
             color: #ddd; /* Replace with your desired link color */
 
             &:hover{
