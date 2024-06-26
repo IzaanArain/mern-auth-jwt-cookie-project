@@ -4,8 +4,8 @@ import SidebarNav from "./components/header/SidebarNav"
 const App = () => {
   return (
     <>
-    {/* <Header/> */}
-    <SidebarNav/>
+    <Header/>
+    {/* <SidebarNav/> */}
     <h1>My app</h1>
     </>
   )

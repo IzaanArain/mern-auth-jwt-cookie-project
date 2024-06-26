@@ -1,4 +1,4 @@
-import './header.css'
+import "./header.css";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LiaCookieBiteSolid } from "react-icons/lia";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
