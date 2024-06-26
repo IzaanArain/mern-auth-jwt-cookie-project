@@ -5,7 +5,7 @@ import { LiaCookieBiteSolid } from "react-icons/lia";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { VscSignOut, VscSignIn } from "react-icons/vsc";
 import Offcanvas from "react-bootstrap/Offcanvas";
-const SidebarNav = () => {
+const HeaderOffcanvas = () => {
   return (
     <>
       <header>
@@ -54,4 +54,4 @@ const SidebarNav = () => {
   );
 };
 
-export default SidebarNav;
+export default HeaderOffcanvas;
