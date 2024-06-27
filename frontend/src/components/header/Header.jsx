@@ -13,21 +13,21 @@ const Header = () => {
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand className="d-flex align-items-center">
-                <span className="me-1">MERN-AUTH</span>
-                <LiaCookieBiteSolid/>
+                <span className="me-1" style={{fontSize:"1.2rem"}}>MERN-AUTH</span>
+                <LiaCookieBiteSolid style={{fontSize:"1.5rem"}}/>
               </Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <LinkContainer to="/login">
-                  <Nav.Link>
-                    <VscSignIn /> <span>Sign In</span>
+                  <Nav.Link className="d-flex align-items-center">
+                    <VscSignIn  style={{fontSize:"1.2rem", marginRight:"0.2rem"}}/> <span>Sign In</span>
                   </Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/register">
-                  <Nav.Link>
-                    <VscSignOut /> <span>Sign Up</span>
+                  <Nav.Link className="d-flex align-items-center">
+                    <VscSignOut  style={{fontSize:"1.2rem", marginRight:"0.2rem"}}/> <span>Sign Up</span>
                   </Nav.Link>
                 </LinkContainer>
               </Nav>
