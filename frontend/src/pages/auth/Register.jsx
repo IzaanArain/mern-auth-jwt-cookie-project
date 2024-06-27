@@ -27,6 +27,7 @@ const Register = () => {
                   placeholder="Enter Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoComplete="off"
                 />
               </Form.Group>
 
@@ -37,6 +38,7 @@ const Register = () => {
                   placeholder="Enter Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="off"
                 />
               </Form.Group>
 
