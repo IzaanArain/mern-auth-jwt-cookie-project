@@ -27,7 +27,7 @@ const Hero = () => {
               This is a simple hero unit, a simple jumbotron-style component for
               calling extra attention to featured content or information.
             </Card.Text>
-            <div className="d-flex flex-column flex-lg-row justify-content-lg-center gap-4">
+            <div className="d-flex flex-column gap-4 flex-lg-row">
               <button className="btn btn-outline-info btn-lg ">Sign In</button>
               <button className="btn btn-outline-info btn-lg">Register</button>
             </div>
