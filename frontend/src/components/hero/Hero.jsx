@@ -2,6 +2,8 @@ import "./hero.css";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { LiaCookieBiteSolid } from "react-icons/lia";
+import { LinkContainer } from "react-router-bootstrap";
+
 const Hero = () => {
   return (
     <>
@@ -28,8 +30,16 @@ const Hero = () => {
               calling extra attention to featured content or information.
             </Card.Text>
             <div className="d-flex flex-column gap-4 flex-lg-row">
-              <button className="btn btn-outline-info btn-lg ">Sign In</button>
-              <button className="btn btn-outline-info btn-lg">Register</button>
+              <LinkContainer to="/login">
+                <button className="btn btn-outline-info btn-lg ">
+                  Sign In
+                </button>
+              </LinkContainer>
+              <LinkContainer to="/register">
+                <button className="btn btn-outline-info btn-lg">
+                  Register
+                </button>
+              </LinkContainer>
             </div>
           </Card.Body>
         </Card>
