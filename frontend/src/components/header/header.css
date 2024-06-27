@@ -1,34 +1,36 @@
 :root {
-    --font-color:#fff;
-    --background-color:#212529;
-    --background-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
+  --font-color: #fff;
+  --background-color: #212529;
+  --background-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
 }
 
 /* custom-navbar.css */
 .custom-navbar {
-    background-color: var(--background-color); 
+  background-color: var(--background-color);
 
-    & .navbar-brand {
-        color: var(--font-color); 
+  & .navbar-brand {
+    color: var(--font-color);
+    &:hover {
+        color:#0dcaf0 ;
     }
+  }
+  & .navbar-nav {
+    & .nav-link {
+      color: #ddd;
 
-    & .navbar-nav {
-        & .nav-link {
-            color: #ddd; 
-
-            &:hover{
-                color: var(--font-color); 
-            }
-        }
+      &:hover {
+        color: var(--font-color);
+      }
     }
+  }
 }
 
 .custom-offcanvas {
-    /* background: var(--background-gradient) !important ; */
-    background-color: var(--background-color) !important;
-    color: var(--font-color) !important;
+  /* background: var(--background-gradient) !important ; */
+  background-color: var(--background-color) !important;
+  color: var(--font-color) !important;
 
-    & .offcanvas-header{
-        background: var(--background-gradient) !important;
-    }
+  & .offcanvas-header {
+    background: var(--background-gradient) !important;
+  }
 }

@@ -9,12 +9,12 @@ const Header = () => {
   return (
     <>
       <header className="header-section">
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" className="custom-navbar">
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand className="d-flex align-items-center">
                 <span className="me-1">MERN-AUTH</span>
-                <LiaCookieBiteSolid />
+                <LiaCookieBiteSolid/>
               </Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,7 +25,7 @@ const Header = () => {
                     <VscSignIn /> <span>Sign In</span>
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer>
+                <LinkContainer to="/register">
                   <Nav.Link>
                     <VscSignOut /> <span>Sign Up</span>
                   </Nav.Link>
