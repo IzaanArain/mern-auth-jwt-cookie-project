@@ -4,8 +4,10 @@ import { Form, Button, Row, Col, Card } from "react-bootstrap";
 import FormContainer from "../../components/form/FormContainer";
 import "./auth.css";
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -16,8 +18,18 @@ const Register = () => {
       <div>
         <FormContainer>
           <Card className="auth-card card p-5">
-            <h1>Register</h1>
+            <h1>Sign Up</h1>
             <Form onSubmit={submitHandler}>
+              <Form.Group className="my-2" controlId="name">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Form.Group>
+
               <Form.Group className="my-2" controlId="email">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control
@@ -38,13 +50,23 @@ const Register = () => {
                 />
               </Form.Group>
 
-              <Button type="submit" variant="primary" className="mt-3">
-                Sign In
+              <Form.Group className="my-2" controlId="confirmPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter confirm password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Button type="submit" variant="outline-info" className="mt-3">
+                Sign Up
               </Button>
               <Row className="py-3">
                 <Col>
                   <span>
-                    New Customer? <Link to="/register">Register</Link>
+                    Already have an account? <Link to="/login">Sign In</Link>
                   </span>
                 </Col>
               </Row>
