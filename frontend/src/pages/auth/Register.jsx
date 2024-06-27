@@ -11,7 +11,7 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("Register submit");
+    console.log("register submit");
   };
   return (
     <>
