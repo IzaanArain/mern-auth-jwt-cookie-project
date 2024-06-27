@@ -51,7 +51,7 @@ const Register = () => {
               </Form.Group>
 
               <Form.Group className="my-2" controlId="confirmPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Enter confirm password"
