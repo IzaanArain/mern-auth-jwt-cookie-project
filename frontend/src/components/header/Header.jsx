@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LiaCookieBiteSolid } from "react-icons/lia";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { VscSignOut, VscSignIn } from "react-icons/vsc";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   return (
@@ -10,19 +11,25 @@ const Header = () => {
       <header className="header-section">
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
-            <Navbar.Brand href="/" className="d-flex align-items-center">
-              <span className="me-1">MERN-AUTH</span>
-              <LiaCookieBiteSolid />
-            </Navbar.Brand>
+            <LinkContainer to="/">
+              <Navbar.Brand className="d-flex align-items-center">
+                <span className="me-1">MERN-AUTH</span>
+                <LiaCookieBiteSolid />
+              </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link href="/login">
-                  <VscSignIn /> <span>Sign In</span>
-                </Nav.Link>
-                <Nav.Link href="/register">
-                  <VscSignOut /> <span>Sign Up</span>
-                </Nav.Link>
+                <LinkContainer to="/login">
+                  <Nav.Link>
+                    <VscSignIn /> <span>Sign In</span>
+                  </Nav.Link>
+                </LinkContainer>
+                <LinkContainer>
+                  <Nav.Link>
+                    <VscSignOut /> <span>Sign Up</span>
+                  </Nav.Link>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Container>
