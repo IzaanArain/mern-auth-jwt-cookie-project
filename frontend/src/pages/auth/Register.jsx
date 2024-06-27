@@ -13,6 +13,7 @@ const Register = () => {
     e.preventDefault();
     console.log("register submit");
   };
+  
   return (
     <>
       <div>
