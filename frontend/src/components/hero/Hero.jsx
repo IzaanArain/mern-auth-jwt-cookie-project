@@ -15,7 +15,7 @@ const Hero = () => {
           <Card.Body className="container d-flex justify-content-center align-items-center flex-column">
             <Card.Title>
               <span>MERN Authentication</span>
-              <LiaCookieBiteSolid />
+              <LiaCookieBiteSolid className="text-info" />
             </Card.Title>
             <Card.Text className="text-center">
               This is a boilerplate for MERN authentication that stores a JWT in
