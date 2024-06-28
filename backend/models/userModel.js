@@ -21,6 +21,11 @@ const userSchema = new Schema({
         required: true,
         default: null
     },
+    profileImage:{
+        type:String,
+        required: true,
+        default: null
+    }
 },{timestamps:true});
 
 userSchema.pre('save',async function (next) {
