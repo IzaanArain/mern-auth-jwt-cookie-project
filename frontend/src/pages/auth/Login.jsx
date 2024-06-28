@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
 import "./auth.css";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 import FormContainer from "../../components/form/FormContainer";
-import { useDispatch, useSelector } from 'react-redux';
-import { useLoginMutation } from "../../Redux/slices/usersApiSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../../Redux/slices/auth/usersApiSlice";
 import { setCredentials } from "../../Redux/slices/auth/AuthSlice";
+import { toast } from 'react-toastify';
+import LoadingSpinner from "../../components/loaders/LoadingSpinner";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,24 +16,26 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [login,{isLoading}] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
-  useEffect(()=>{
-    if(userInfo){
+  useEffect(() => {
+    if (userInfo) {
       navigate("/");
     }
-  },[navigate,userInfo]);
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await login({email,password}).unwrap();
-      dispatch(setCredentials({...res}));
-      navigate("/")
-    } catch (err){
-      console.log(err?.data?.message || err?.error)
+      const res = await login({ email, password }).unwrap();
+      const data = res?.data;
+      dispatch(setCredentials({ ...data }));
+      navigate("/");
+    } catch (err) {
+      console.error(err?.data?.message || err?.error);
+      toast.error(err?.data?.message || err?.error)
     }
   };
 
@@ -62,7 +66,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
-
+              {isLoading && <LoadingSpinner/>}
               <Button type="submit" variant="outline-info" className="mt-3">
                 Sign In
               </Button>

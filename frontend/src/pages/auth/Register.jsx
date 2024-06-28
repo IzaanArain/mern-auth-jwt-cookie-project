@@ -1,19 +1,50 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import "./auth.css";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 import FormContainer from "../../components/form/FormContainer";
-import "./auth.css";
+import { toast } from "react-toastify";
+import LoadingSpinner from "../../components/loaders/LoadingSpinner";
+import { useRegisterMutation } from "../../Redux/slices/auth/usersApiSlice";
+import { setCredentials } from "../../Redux/slices/auth/AuthSlice";
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const [register, { isLoading }] = useRegisterMutation();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("register submit");
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+    } else {
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        const data = res?.data;
+        dispatch(setCredentials({ ...data }));
+        navigate("/");
+      } catch (err) {
+        console.error(err?.data?.message || err?.error);
+        toast.error(err?.data?.message || err?.error);
+      }
+    }
   };
-  
+
   return (
     <>
       <div>
@@ -62,6 +93,8 @@ const Register = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Form.Group>
+
+              {isLoading && <LoadingSpinner/>}
 
               <Button type="submit" variant="outline-info" className="mt-3">
                 Sign Up
