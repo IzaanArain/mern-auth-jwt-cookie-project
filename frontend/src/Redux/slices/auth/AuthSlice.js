@@ -19,6 +19,8 @@ const authSlice = createSlice({
       localStorage.removeItem("userInfo");
     },
   },
+  extraReducers:(builder)=>{
+  }
 });
 
 export const { setCredentials, clearCredentials } = authSlice.actions
