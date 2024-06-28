@@ -39,7 +39,7 @@ const Login = () => {
     <>
       <div>
         <FormContainer>
-          <Card className="auth-card card p-5">
+          <Card className="auth-card p-5">
             <h1>Sign In</h1>
             <Form onSubmit={submitHandler}>
               <Form.Group className="my-2" controlId="email">
