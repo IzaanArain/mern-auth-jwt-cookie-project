@@ -17,7 +17,7 @@ const registerUser = expressAsyncHandler(async (req,res) =>{
     };
     const user = await User.create({
         name,
-        email,
+        email:email.toLowerCase(),
         password
     });
 
@@ -45,7 +45,7 @@ const registerUser = expressAsyncHandler(async (req,res) =>{
 const authUser = expressAsyncHandler(async (req,res) =>{
     const { email, password } = req.body;
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({email:email.toLowerCase()});
     if(user && (await user.matchPassword(password))){
        const token = generateToken(res,user._id);
         return res.status(201).json({
@@ -100,10 +100,14 @@ const updateUserProfile = expressAsyncHandler(async (req,res) =>{
         }
         const updatedUser = await user.save()
        return  res.status(200).json({
+        status:1,
+        message:"User created successfully",
+        data:{
             _id: updatedUser._id,
             name: updatedUser.name,
             email: updatedUser.email
-        })
+        }
+    })
     } else {
         res.status (404);
         throw new Error("User not found");
