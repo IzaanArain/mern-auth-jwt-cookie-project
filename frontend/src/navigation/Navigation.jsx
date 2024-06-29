@@ -2,14 +2,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider,
 } from "react-router-dom";
-import PrivateRoutes from "./PrivateRoutes";
+import PrivateRoutes from "./PrivateRoutes.jsx";
+import Home from "../pages/home/Home.jsx";
+import Login from "../pages/auth/Login.jsx";
+import Register from "../pages/auth/Register.jsx";
+import Profile from "../pages/profile/Profile.jsx";
 import App from "../App.jsx";
-import Home from "../pages/home/Home";
-import Login from "./pages/auth/Login.jsx";
-import Register from "./pages/auth/Register.jsx";
-import Profile from "./pages/profile/Profile.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,3 +23,4 @@ const router = createBrowserRouter(
     </Route>
   )
 );
+export default router
