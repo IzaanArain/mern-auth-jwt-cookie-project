@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes.jsx";
+import NotFound from "../pages/notFound/NotFound.jsx";
 import Home from "../pages/home/Home.jsx";
 import Login from "../pages/auth/Login.jsx";
 import Register from "../pages/auth/Register.jsx";
@@ -12,7 +13,11 @@ import App from "../App.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route 
+    path="/" 
+    element={<App/>}
+    errorElement={<NotFound/>}
+    >
       <Route index={true} path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
